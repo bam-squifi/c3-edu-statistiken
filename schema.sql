@@ -1,0 +1,24 @@
+DROP TABLE IF EXISTS states;
+DROP TABLE IF EXISTS stats;
+
+CREATE TABLE states (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT UNIQUE NOT NULL,
+);
+
+
+CREATE TABLE stats (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  state_id INTEGER NOT NULL,
+  fType NOT NULL,
+  qualification NOT NULL,
+  degree NOT NULL,
+  nationality NOT NULL,
+  ageRange NOT NULL,
+  jobType NOT NULL,
+  jobSize NOT NULL,
+  jobArea NOT NULL,
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (state_id) REFERENCES states (id)
+);
+
