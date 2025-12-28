@@ -6,28 +6,41 @@
    url_for('static',filename='main.css') }}">
    <title>c3 Edu Bildungsurlaub</title>
   </head>
-   <body>
-    <div class="container mt-5">
+   <body data-bs-theme="dark">
+    <div class="container mt-1">
       <div class="card shadow-sm">
 	<div class="card-body">
+	<img src="{{ url_for('static',
+	filename='39c3_Logo_Full.png')}}" class="w-20 img-thumbnail" alt="39c3-Logo" />
 
 	  <h1>Let's Bildungsurlaub!</h1>
+	  
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	  <ul class="mb-3 list-group flash-message">
+	    {% for message in messages %}
+	      <li class="list-group-item list-group-item-success">{{ message }}</li>
+	    {% endfor %}
+	  </ul>
+	{% endif %}
+	{% endwith %}
+
 	  <p>Bildungsurlaub Statistik Tool</p>
 
 	<form method="POST" action"{{ url_for('submit') }}">
 
-	<div class="mb-3 dropdown">
+	<div class="mb-3 px-5">
 	  <label class="form-label" for="gender">Geschlecht:</label>
-	  <select name="gender" id="gender">
+	  <select class="form-select" name="gender" id="gender">
 	    <option value="M">Männlich</option>
 	    <option value="W">Weiblich</option>
 	    <option value="D">Divers</option>
 	  </select>
 	</div>
 
-	<div class="mb-3">
+	<div class="mb-3 px-5">
 	  <label class="form-label" for="bundesland">Bundesland:</label>
-	  <select name="bundesland" id="bundesland">
+	  <select class="form-select" name="bundesland" id="bundesland">
 	    <option value="hamburg">Hamburg</option>
 	    <option value="niedersachsen">Niedersachsen</option>
 	    <option value="rheinland-pfalz">Rheinland-Pfalz</option>
@@ -38,17 +51,17 @@
 	</div>
 
 
-	<div class="mb-3">
+	<div class="mb-3 px-5">
 	<label class="form-label" for="freistellung">Freistellung:</label>
-	  <select name="freistellung" id="freistellung">
+	  <select class="form-select" name="freistellung" id="freistellung">
 	    <option value="mit">Mit</option>
 	    <option value="mitSonstiger">Mit Sonstiger</option>
 	  </select>
 	</div>
 
-	<div class="mb-3">
+	<div class="mb-3 px-5">
 	  <label class="form-label" for="beruflicheQualifikation">Berufliche Qualifikation:</label>
-	    <select name="beruflicheQualifikation" id="beruflicheQualifiktion">
+	    <select class="form-select" name="beruflicheQualifikation" id="beruflicheQualifiktion">
 	      <option value="mit">Mit</option>
 	      <option value="ohne">Ohne</option>
 	      <option value="auszubildende">Auszubildende</option>
@@ -56,9 +69,9 @@
 	  </div>
 
 
-	  <div class="mb-3">
+	  <div class="mb-3 px-5">
 	    <label class="form-label" for="bildung">Schulische Bildung:</label>
-	      <select name="bildung" id="bildung">
+	      <select class="form-select" name="bildung" id="bildung">
 		<option value="abitur">Abitur</option>
 		<option value="fachabitur">Fachabitur</option>
 		<option value="hochchulabschluss">Hochschulabschluß</option>
@@ -67,42 +80,42 @@
 	      </select>
 	  </div>
 
-	<div class="mb-3">
+	<div class="mb-3 px-5">
 	<label class="form-label" for="nationalitaet">Nationalität</label>
-	<select name="nationalitaet" id="nationalitaet">
+	<select class="form-select" name="nationalitaet" id="nationalitaet">
 	  <option value="deutsch">Deutsch</option>
 	  <option value="europaeisch">Europäisch</option>
 	  <option value="drittstaaten">Drittstaaten</option>
 	</select>
 	</div>
 
-	<div class="mb-3 dropdown">
-	<label class="form-label" for="alter">Alter:</label>
-	<select name="alter" id="alter">
-	  <option value="unter18">Unter 18</option>
-	  <option value="18-24">18-24</option>
-	  <option value="25-29">25-29</option>
-	  <option value="30-34">30-34</option>
-	  <option value="35-39">35-39</option>
-	  <option value="40-44">40-44</option>
-	  <option value="45-49">45-49</option>
-	  <option value="50-59">50-59</option>
-	  <option value="60plus">60+</option>
-	</select>
+	<div class="mb-3 px-5">
+	  <label class="form-label" for="alter">Alter:</label>
+	  <select class="form-select" name="alter" id="alter">
+	    <option value="unter18">Unter 18</option>
+	    <option value="18-24">18-24</option>
+	    <option value="25-29">25-29</option>
+	    <option value="30-34">30-34</option>
+	    <option value="35-39">35-39</option>
+	    <option value="40-44">40-44</option>
+	    <option value="45-49">45-49</option>
+	    <option value="50-59">50-59</option>
+	    <option value="60plus">60+</option>
+	  </select>
 	</div>
 
-	<div class="mb-3">
-	<label class="form-label" for="betriebstatus">Betriebstatus:</label>
-	<select name="betriebstatus" id="betriebstatus">
-	  <option value="angestellte">Angestellte</option>
-	  <option value="auszubildende">Auszubildende</option>
-	  <option value="beamte">Beamte</option>
-	</select>
+	<div class="mb-3 px-5">
+	  <label class="form-label" for="betriebstatus">Betriebstatus:</label>
+	  <select class="form-select" name="betriebstatus" id="betriebstatus">
+	    <option value="angestellte">Angestellte</option>
+	    <option value="auszubildende">Auszubildende</option>
+	    <option value="beamte">Beamte</option>
+	  </select>
 	</div>
 
-	<div class="mb-3"> 
+	<div class="mb-3 px-5"> 
 	<label class="form-label" for="betriebsgroesse">Betriebsgröße:</label>
-	<select name="betriebsgroesse" id="betriebsgroesse">
+	<select class="form-select" name="betriebsgroesse" id="betriebsgroesse">
 	  <option value="1-9">1-9</option>
 	  <option value="10-19">10-19</option>
 	  <option value="20-24">20-24</option>
@@ -113,15 +126,15 @@
 	</select>
 	</div>
 
-	<div class="mb-3">
+	<div class="mb-3 px-5">
 	<label class="form-label" for="beschaeftigungssektor">Beschäftigungssektor:</label>
-	<select name="beschaeftigungssektor" id="beschaeftigungssektor">
+	<select class="form-select" name="beschaeftigungssektor" id="beschaeftigungssektor">
 	  <option value="oeffentlicherDienst">Öffentlicher Dienst</option>
 	  <option value="privat">Privat</option>
 	</select>
 	</div>
 
-	  <div class="mb-3">
+	  <div class="mb-3 px-5">
 	    <input type="submit" class="btn btn-primary" value="Absenden" />
 	  </div>
 	</form>
@@ -130,4 +143,9 @@
       </div>
     </div>
    </body>
+   <script>
+    setTimeout(() => {
+      document.querySelectorAll(".flash-message").forEach(e=>e.remove());
+    }, 2000);
+   </script>
 </html>
