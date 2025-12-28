@@ -20,4 +20,11 @@ def close_db(e=None):
     if db is not None:
         db.close()
 
+def truncate_db():
+    db = get_db()
+    cur = db.cursor()
+    cur.execute("DELETE FROM stats")
+    db.commit()
+    print("The database has been truncated")
+
 

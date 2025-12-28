@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 from markupsafe import escape
-from db import get_db
+from db import get_db, truncate_db
 import sqlite3, click, datetime
 
 app = Flask(__name__)
@@ -18,6 +18,17 @@ def list():
     cur.execute("select * from stats")
     rows = cur.fetchall()
     return [dict(row) for row in rows]
+
+@app.route('/stats/<bundesland>')
+def show_stats_for_bundesland(bundesland):
+    db = get_db()
+    cur = db.cursor()
+    cur.execute("select * from stats where bundesland = ?",
+    escape(bundesland))
+    rows = cur.fetchall()
+    return [dict(row) for row in rows]
+
+
 
 @app.route('/', methods=["POST"])
 def submit():
@@ -63,3 +74,8 @@ def submit():
     db.close()
     return "Ok - check your terminal output"
 
+@app.route('/deletedata')
+def delete_data():
+    truncate_db()
+    return "Data - successfully deleted"
+    
