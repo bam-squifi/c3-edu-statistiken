@@ -1,26 +1,14 @@
-# C3-edu-Statistiken
+New more basic try just to get this site working quickly
 
-Neues Repo um das alte Program zu erneuern.
-
-Statistiken die erhoben werden sollten je Bundesland:
-
-ID - GENDER - BUNDESLAND - FREISTELLUNG - Berufliche Qualifikation -
-Schulische Bildung - Nationalität - Betriebstatus - Betriebsgröße -
-Beschäftigungssektor
+Started off with docker initially, but too many problems with SELinux
+and permissions, so in order to save time we will do it like this and
+slowly make it nicer.
 
 
-Gender: M - W - D
-Bundesland: SH, HH, Thüringen
-Freistellung: Mit, Mit sonstiger
-Berufliche Qualifikation: Mit - Ohne - Asuzubildende
-Schulische Bildung: Hochschulabschluß, Abitur, Mittlere Reife, Ohne,
-Fachabitur
-Nationalität: Deutsch, EU, Drittstaaten
-Alter: 18 - 24, 25 - 29, 30 - 34, 35 - 39, 40 - 44, 45-49, 50-59, 60+
-Betriebsstatus: Angestellte, Auszubildende, Beamte, 
-Betriebsgröße: 1-9, 10-19, 20-24, 25-49, 50 - 99, 100-499, 500+
-Beschäftigungssektor: Öffentlicher Dienst, Privat
-
-
-Idee ist entweder in Python oder sogar in Rust mit Containern. Die
-Zeit drängt allerdings etwas.
+""" bash
+git clone <thisapp>
+cd c3-edu-statistiken
+python3 -m venv .venv(.fish)
+. .venv/bin/activate
+pip install flask
+"""

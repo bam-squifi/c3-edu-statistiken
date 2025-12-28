@@ -2,7 +2,8 @@ import sqlite3
 from datetime import datetime
 
 import click
-import flask import current_app, g
+from flask import current_app, g
+
 
 def get_db():
     if 'db' not in g:
@@ -11,7 +12,9 @@ def get_db():
             detect_types=sqlite3.PARSE_DECLTYPES
         )
         g.db.row_factory = sqlite3.Row
-    return g.db 
+
+    return g.db
+
 
 def close_db(e=None):
     db = g.pop('db', None)
@@ -29,11 +32,12 @@ def init_db():
 def init_db_command():
     """Clear the existing data and create new tables."""
     init_db()
-    Click.echo('Initialised the Database')
+    click.echo('Initialized the database.')
+
 
 sqlite3.register_converter(
-    "timestamp", lambda v: datetime.fromisoformat(v.decode))
-
+    "timestamp", lambda v: datetime.fromisoformat(v.decode())
+)
 
 def init_app(app):
     app.teardown_appcontext(close_db)

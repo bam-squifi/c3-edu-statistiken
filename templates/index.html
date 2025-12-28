@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+  <head>
+   <meta charset='UTF-8'>
+   <link rel="stylesheet" href="{{
+   url_for('static',filename='main.css') }}">
+   <title>c3 Edu Bildungsurlaub</title>
+  </head>
+   <body>
+    <div class="container mt-5">
+      <div class="card shadow-sm">
+	<div class="card-body">
+
+	  <h1>Welcome to My Flask App!</h1>
+	  <p>Bildungsurlaub application</p>
+
+	<form method="POST" action"{{ url_for('submit') }}">
+
+	<div class="mb-3">
+	  <label class="form-label" for="gender">Geschlecht:</label>
+	  <select name="gender" id="gender">
+	    <option value="M">Männlich</option>
+	    <option value="W">Weiblich</option>
+	    <option value="D">Divers</option>
+	  </select>
+	</div>
+
+	<div class="mb-3">
+	  <label class="form-label" for="bundesland">Bundesland:</label>
+	  <select name="bundesland" id="bundesland">
+	    <option value="hamburg">Hamburg</option>
+	    <option value="niedersachsen">Niedersachsen</option>
+	    <option value="rheinland-pfalz">Rheinland-Pfalz</option>
+	    <option value="sachsen-anhalt">Sachsen-Anhalt</option>
+	    <option value="schleswig-holstein">Schleswig-Holstein</option>
+	    <option value="thueringen">Thüringen</option>
+	</select>
+	</div>
+
+
+	<div class="mb-3">
+	<label class="form-label" for="bundesland">Bundesland:</label>
+	  <select name="freistellung" id="freistellung">
+	    <option value="mit">Mit</option>
+	    <option value="mitSonstiger">Mit Sonstiger</option>
+	  </select>
+	</div>
+
+	<div class="mb-3">
+	  <label class="form-label" for="beruflicheQualifikation">Berufliche Qualifikation:</label>
+	    <select name="beruflicheQualifikation" id="beruflicheQualifiktion">
+	      <option value="mit">Mit</option>
+	      <option value="ohne">Ohne</option>
+	      <option value="auszubildende">Auszubildende</option>
+	    </select>
+	  </div>
+
+
+	  <div class="mb-3">
+	    <label class="form-label" for="bildung">Schulische Bildung:</label>
+	      <select name="bildung" id="bildung">
+		<option value="abitur">Abitur</option>
+		<option value="fachabitur">Fachabitur</option>
+		<option value="hochchulabschluss">Hochschulabschluß</option>
+		<option value="mittlereReife">Mittlere Reife</option>
+		<option value="ohne">Ohne</option>
+	      </select>
+	  </div>
+
+	<div class="mb-3">
+	<label class="form-label" for="nationalitaet">Nationalität</label>
+	<select name="nationalitaet" id="nationalitaet">
+	  <option value="deutsch">Deutsch</option>
+	  <option value="europaeisch">Europäisch</option>
+	  <option value="drittstaaten">Drittstaaten</option>
+	</select>
+	</div>
+
+	<div class="mb-3 dropdown">
+	<label class="form-label" for="alter">Alter:</label>
+	<select name="alter" id="alter">
+	  <option value="unter18">Unter 18</option>
+	  <option value="18-24">18-24</option>
+	  <option value="25-29">25-29</option>
+	  <option value="30-34">30-34</option>
+	  <option value="35-39">35-39</option>
+	  <option value="40-44">40-44</option>
+	  <option value="45-49">45-49</option>
+	  <option value="50-59">50-59</option>
+	  <option value="60plus">60+</option>
+	</select>
+	</div>
+
+	<div class="mb-3">
+	<label class="form-label" for="betriebstatus">Betriebstatus:</label>
+	<select name="betriebstatus" id="betriebstatus">
+	  <option value="angestellte">Angestellte</option>
+	  <option value="auszubildende">Auszubildende</option>
+	  <option value="beamte">Beamte</option>
+	</select>
+	</div>
+
+	<div class="mb-3"> 
+	<label class="form-label" for="betriebsgroesse">Betriebsgröße:</label>
+	<select name="betriebsgroesse" id="betriebsgroesse">
+	  <option value="1-9">1-9</option>
+	  <option value="10-19">10-19</option>
+	  <option value="20-24">20-24</option>
+	  <option value="25-49">25-49</option>
+	  <option value="50-99">50-99</option>
+	  <option value="100-499">100-499</option>
+	  <option value="500">500+</option>
+	</select>
+	</div>
+
+	<div class="mb-3">
+	<label class="form-label" for="beschaeftigungssektor">Beschäftigungssektor:</label>
+	<select name="beschaeftigungssektor" id="beschaeftigungssektor">
+	  <option value="oeffentlicherDienst">Öffentlicher Dienst</option>
+	  <option value="privat">Privat</option>
+	</select>
+	</div>
+
+	  <div class="mb-3">
+	    <input type="submit" class="btn btn-primary" value="Absenden" />
+	  </div>
+	</form>
+
+	</div>
+      </div>
+    </div>
+   </body>
+</html>
