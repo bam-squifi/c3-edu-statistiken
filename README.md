@@ -12,3 +12,11 @@ python3 -m venv .venv(.fish)
 . .venv/bin/activate
 pip install flask
 """
+
+## Init the Database:
+
+""" bash
+python sqlite_db_init.py
+"""
+
+Prints success message upon successful completion
