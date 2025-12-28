@@ -68,5 +68,5 @@ def submit():
 @app.route('/deletedata')
 def delete_data():
     truncate_db()
-    return "Data - successfully deleted"
+    return f"Ok - Daten wurden gelöscht"
     

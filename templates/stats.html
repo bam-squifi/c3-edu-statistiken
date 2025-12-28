@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Stats</title>
+
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+  <div class="container mt-4">
+
+    <h2>{{ title or "Statistiken" }}</h2>
+
+    {% if data %}
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+          <thead class="table-dark">
+            <tr>
+              {% for key in data[0].keys() %}
+                <th>{{ key }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in data %}
+              <tr>
+                {% for value in row.values() %}
+                  <td>{{ value }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="alert alert-info">
+        Keine Daten gefunden.
+      </div>
+    {% endif %}
+
+  </div>
+</body>
+</html>
+
