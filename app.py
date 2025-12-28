@@ -23,8 +23,8 @@ def list():
 def show_stats_for_bundesland(bundesland):
     db = get_db()
     cur = db.cursor()
-    cur.execute("select * from stats where bundesland = ?",
-    escape(bundesland))
+    state = escape(bundesland)
+    cur.execute("select * from stats where state = ?", (state,))
     rows = cur.fetchall()
     return [dict(row) for row in rows]
 
@@ -58,7 +58,7 @@ def submit():
         """ INSERT INTO
             stats (
                 gender,
-                state_id,
+                state,
                 fType,
                 qualification,
                 degree,
